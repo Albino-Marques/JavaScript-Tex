@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ex_02</title>
-<script src="/js/exJS_02.js" async ></script>
-</head>
+    <script src="/js/exJS_02.js" async></script>
+    <!--Pode-se usar a propriedade "defer" após o direcionamento do arquivos .js para que o script seja carregado após o carregamento dos elementos HTML, entretanto, a leitura do mesmo fica um pouco prejudicada. O ideal pode ser usado para carregamentos prioritários, como no JQuerry e afins.-->
+    <!--Também tem a propriedade "async" que carregará os documetos independentemente da ordem de carregamentos, não aguardando a página HTML inteira ser carregada para depois o arquivos ser carregado, e nem furando a "fila" de carregamento, mantendo uma linearidade, e acompanhando os elementos correspondentes a necessidade.-->
+  </head>
 
-<body>
+  <body>
     <h2 class="titulo" id="titulo01">EX_02 Javascript</h2>
+    <!--Quando referênciado no JavaScript a classe, ele traz uma coleção de referências, pois a classe pode ser atribuída a inumeros elementos dentro do HTML.-->
+    <!--Já quando é referência no JavaScript o id, ele traz somente o elemento específicado, pois o ID é único dentro do documento HTML.-->
     <h2 class="titulo" id="titulo02">EX_02_1 Javascript</h2>
-</body>
- 
-
-
+  </body>
 </html>

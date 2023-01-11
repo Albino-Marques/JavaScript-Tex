@@ -2,26 +2,26 @@
 
 ## 5 + 2.0 --> 5 + 2
 
-#### Neste exemplo abaixo, o JavaScript converte o 2.0 para o mesmo tipo do 5 já que é possível. Para que seja possível efetuar a operação matemática.
+### Neste exemplo abaixo, o JavaScript converte o 2.0 para o mesmo tipo do 5 já que é possível. Para que seja possível efetuar a operação matemática.
 
 <hr>
 
 ## Number('0x11') = 17:
-#### O 0x11 entra como hexadecimal onde o JavaScript irá convertê-lo, ficando 11(16). Este irão ser convertidos --> 1x16(0) + 1x16(1) --->>> 16 + 1 = 17
+### O 0x11 entra como hexadecimal onde o JavaScript irá convertê-lo, ficando 11(16). Este irão ser convertidos --> 1x16(0) + 1x16(1) --->>> 16 + 1 = 17
 
 <hr>
 
-#### null == undefined -->> undefined (será convertido para undefined)
+### null == undefined -->> undefined (será convertido para undefined)
 
 <br>
 <br>
 
 # Declaração de Variáveis:
 
-#### É possível declarar variávei usando:
-#### "let"
-#### "const"
-#### "var"
+### É possível declarar variávei usando:
+### "let"
+### "const"
+### "var"
 
 [x] São processadas antes de qualquer outras no código.
 [x] Equivale a declarar no início.

@@ -1,3 +1,4 @@
+//Pode-se utilizar o this para referenciar o elemento que ativou o evento.
 console.log("Olá mundo");
 
 let carrinho = {

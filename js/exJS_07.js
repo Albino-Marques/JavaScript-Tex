@@ -65,6 +65,17 @@ Object.keys(carrinho).forEach((key, i) => {
   //   count = count + 1;
 });
 
+/**==============================**/
+
+/* Criando Elementos HTML através de createElement() */
+let p = document.createElement("p");
+p.style = "color:brown";
+p.setAttribute("class", "w-100");
+document.querySelector("#mensagem").appendChild(p);
+p.innerText = "Nossos alimentos passam por uma rigorosa análise de qualidade.";
+
+/**==============================**/
+
 //Alternativa 1 = Sem usar o this.
 // let qtd = document.querySelector(".input-item-qtd");
 

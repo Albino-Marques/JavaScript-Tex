@@ -10,7 +10,10 @@ let t1Txt,
   st2,
   temp,
   tipo1Txt,
-  tipo2Txt;
+  tipo2Txt,
+  ativo,
+  anterior,
+  duplas;
 
 t1Txt = document.querySelector("#func01-turno");
 t2Txt = document.querySelector("#func02-turno");
@@ -19,7 +22,11 @@ st2Txt = document.querySelector("#func02-setor");
 tipo1Txt = document.querySelector("#func01-extra");
 tipo2Txt = document.querySelector("#func02-extra");
 
-console.log(st1Txt);
+duplas = {
+  dupla0: ["Estela Martins", "Adonis Santos"],
+  dupla1: ["Cleonildo Amarante", "Pilar Detomasi"],
+  dupla2: ["Francis Albieri", "Portella Afonso Silva"],
+};
 
 trocaTurno(
   t1Txt,
@@ -66,18 +73,22 @@ document
   });
 
 // Para saber se um radio está ativo e marcado.
-let anterior = 0;
+anterior = 0;
+ativo = 0;
 document.querySelectorAll("input[type=radio]").forEach((n, i) => {
-  n.onclick = function () {
+  n.onchange = function () {
     i == 0 ? (anterior = 1) : null;
-    if (n.checked) {
-      document
-        .querySelector(`.dupla:nth-of-type(${i + 1})`)
-        .classList.remove("bg-light");
-    }
+
+    document
+      .querySelector(`.dupla:nth-of-type(${i + 1})`)
+      .classList.remove("bg-light");
+
     document
       .querySelector(`.dupla:nth-of-type(${anterior + 1})`)
       .classList.add("bg-light");
     anterior = i;
+    ativo = i;
+    document.querySelector("label");
+    duplas[`dupla${i}`];
   };
 });

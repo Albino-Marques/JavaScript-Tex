@@ -4,17 +4,23 @@ let t1Txt,
   t2Txt,
   st1Txt,
   st2Txt,
-  btnConfTurno,
-  btnConfSetor,
-  st1,
-  st2,
   temp,
   tipo1Txt,
   tipo2Txt,
-  ativo,
   anterior,
-  duplas;
+  duplas,
+  listOn,
+  infoT1,
+  infoT2,
+  infoSt1,
+  infoSt2,
+  infoStRev1,
+  infoStRev2;
 
+anterior = document.querySelector(`.dupla-0`);
+var ativo = 0;
+
+//Forms
 t1Txt = document.querySelector("#func01-turno");
 t2Txt = document.querySelector("#func02-turno");
 st1Txt = document.querySelector("#func01-setor");
@@ -28,67 +34,80 @@ duplas = {
   dupla2: ["Francis Albieri", "Portella Afonso Silva"],
 };
 
-trocaTurno(
-  t1Txt,
-  t2Txt,
-  document.querySelector("#info1-00 span:nth-of-type(1)"),
-  document.querySelector("#info1-01 span:nth-of-type(1)")
-);
+function infos(ativo) {
+  (infoT1 = document.querySelector(
+    `.dupla-${ativo} #info1-00 span:nth-of-type(1)`
+  )),
+    (infoT2 = document.querySelector(
+      `.dupla-${ativo} #info1-01 span:nth-of-type(1)`
+    ));
+
+  infoSt1 = document.querySelector(
+    `.dupla-${ativo} #info1-00 span:nth-of-type(2)`
+  );
+  infoSt2 = document.querySelector(
+    `.dupla-${ativo} #info1-01 span:nth-of-type(2)`
+  );
+
+  infoStRev1 = document.querySelector(
+    `.dupla-${ativo} #info1-00 span:nth-of-type(3)`
+  );
+  infoStRev2 = document.querySelector(
+    `.dupla-${ativo} #info1-01 span:nth-of-type(3)`
+  );
+}
+
+infos(ativo);
+trocaTurno(t1Txt, t2Txt, infoT1, infoT2, false);
 
 document.querySelector("#btnConfTurno").addEventListener("click", function () {
-  trocaTurno(
-    t1Txt,
-    t2Txt,
-    document.querySelector("#info1-00 span:nth-of-type(1)"),
-    document.querySelector("#info1-01 span:nth-of-type(1)")
-  );
+  infos(ativo);
+  trocaTurno(t1Txt, t2Txt, infoT1, infoT2, true);
 });
 
-trocaSetor(
-  st1Txt,
-  st2Txt,
-  document.querySelector("#info1-00 span:nth-of-type(2)"),
-  document.querySelector("#info1-01 span:nth-of-type(2)")
-);
+trocaSetor(st1Txt, st2Txt, infoSt1, infoSt2);
 
 document.querySelector("#btnConfSetor").addEventListener("click", function () {
-  trocaSetor(
-    st1Txt,
-    st2Txt,
-    document.querySelector("#info1-00 span:nth-of-type(2)"),
-    document.querySelector("#info1-01 span:nth-of-type(2)")
-  );
+  infos(ativo);
+  trocaSetor(st1Txt, st2Txt, infoSt1, infoSt2);
 });
 
+tipo1Txt.value = "Semana com exceção de feriados.";
+tipo2Txt.value = "Fins de semana com feriados.";
 document
   .querySelector("#btnConfTipoTurno")
   .addEventListener("click", function () {
+    infos(ativo);
     temp = tipo1Txt.value;
     tipo1Txt.value = tipo2Txt.value;
-    document.querySelector("#info1-00 span:nth-of-type(3)").innerText =
-      tipo1Txt.value;
     tipo2Txt.value = temp;
-    document.querySelector("#info1-01 span:nth-of-type(3)").innerText =
-      tipo2Txt.value;
+    infoStRev1.innerText = tipo1Txt.value;
+    infoStRev2.innerText = tipo2Txt.value;
   });
 
-// Para saber se um radio está ativo e marcado.
-anterior = 0;
-ativo = 0;
+// Para saber se um radio está ativo e marcado. E tratar seus dados.
+
+listOn = ["border", "border-4", "border-alert"];
+
+document.querySelector(`.dupla-0`).classList.remove("bg-light");
+
+document.querySelector(`.dupla-0`).classList.add(...listOn);
+
 document.querySelectorAll("input[type=radio]").forEach((n, i) => {
   n.onchange = function () {
-    i == 0 ? (anterior = 1) : null;
+    document.querySelector(`.dupla-${i}`).classList.remove("bg-light");
 
-    document
-      .querySelector(`.dupla:nth-of-type(${i + 1})`)
-      .classList.remove("bg-light");
+    document.querySelector(`.dupla-${i}`).classList.add(...listOn);
 
-    document
-      .querySelector(`.dupla:nth-of-type(${anterior + 1})`)
-      .classList.add("bg-light");
-    anterior = i;
+    anterior.classList.remove(...listOn); // Os "..." serve para acessar todos os valores do array
+    anterior.classList.add("bg-light");
+
+    anterior = document.querySelector(`.dupla-${i}`);
     ativo = i;
-    document.querySelector("label");
-    duplas[`dupla${i}`];
+
+    document.querySelector("label[for=func-01]").innerText =
+      duplas[`dupla${i}`][0];
+    document.querySelector("label[for=func-02]").innerText =
+      duplas[`dupla${i}`][1];
   };
 });

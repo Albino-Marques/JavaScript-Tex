@@ -1,0 +1,39 @@
+const btnConfirma = document.querySelector("#btnConfirma");
+const nomeVisitante = document.querySelector("#nomeVisitante");
+const mensagem = document.querySelector("#mensagem");
+
+//Função ocultar o forms e mostrar uma mensagem.
+function verificaUser() {
+  document.querySelector(".user").innerText = localStorage.getItem(`user`);
+  document.querySelector("#box02").classList.remove("hide");
+  document.querySelector("#box01").classList.add("hide");
+  document.querySelector("#box02 p").innerText = `Oi ${localStorage.getItem(
+    "user"
+  )}, seja bem vindo! 😁🖖  `;
+}
+
+// function sair() {
+//   document.querySelector("#box02").classList.add("hide");
+//   document.querySelector("#box01").classList.remove("hide");
+//   document.querySelector(".user").innerText = "";
+// }
+
+document.querySelector(".sair").style.cursor = "pointer";
+document.querySelector(".sair").addEventListener("click", () => {
+  document.querySelector("#box02").classList.add("hide");
+  document.querySelector("#box01").classList.remove("hide");
+  document.querySelector(".user").innerText = "";
+});
+
+//Verificação se há valor em Local Storage
+localStorage.user ? verificaUser() : null;
+
+//Função para quando clicar em "confirmar" submeter o valor as variáveis.
+btnConfirma.onclick = function () {
+  mensagem.style.display = "block";
+  document.querySelector("#box01").classList.add("hide");
+  document.querySelector("#box02").classList.remove("hide");
+  mensagem.textContent = `Oi ${nomeVisitante.value}, seja bem vindo 😁🖖`;
+  user = localStorage.setItem("user", nomeVisitante.value);
+  document.querySelector(".user").innerText = localStorage.getItem(`user`);
+};

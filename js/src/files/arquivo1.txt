@@ -1,0 +1,6 @@
+    <h3>Olá, eu sou um texto.</h3>
+
+    <div>
+        <img src="/images/produtos/breakfast.jpg" alt="Breakfast" class="w-50 px-3" align="left">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dicta asperiores sint quam nobis placeat praesentium recusandae, quaerat eaque? Voluptas tempore autem incidunt natus neque, expedita beatae, quam nobis, quisquam vitae deserunt nostrum dicta dolores id? Aliquid magnam placeat repellat.</p>
+    </div>

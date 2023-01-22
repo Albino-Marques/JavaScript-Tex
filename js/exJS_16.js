@@ -1,6 +1,7 @@
 const btnConfirma = document.querySelector("#btnConfirma");
 const nomeVisitante = document.querySelector("#nomeVisitante");
 const mensagem = document.querySelector("#mensagem");
+const txtConfirma = document.querySelector("#comentario")
 
 //Função ocultar o forms e mostrar uma mensagem.
 function verificaUser() {
@@ -12,6 +13,12 @@ function verificaUser() {
     "user"
   )}, seja bem vindo! 😁🖖  `;
 }
+
+function f_comentario() {
+  sessionStorage.setItem('salvarTxt', txtConfirma.value)
+}
+sessionStorage.getItem('salvarTxt') ? txtConfirma.value = sessionStorage.getItem('salvarTxt') : null
+txtConfirma.addEventListener('change', f_comentario())
 
 // function sair() {
 //   document.querySelector("#box02").classList.add("hide");

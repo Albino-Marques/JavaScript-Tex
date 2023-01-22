@@ -87,13 +87,13 @@ Object.keys(carrinho).forEach((key, i) => {
     item.setAttribute("class", `col item-${otherkey}`);
     ii === 0
       ? carrinho["criaImagem"](
-          `/images/produtos/${carrinho[key].imagem}`,
-          carrinho[key].nome,
-          item
-        )
+        `/images/produtos/${carrinho[key].imagem}`,
+        carrinho[key].nome,
+        item
+      )
       : ii === 3
-      ? carrinho["criaInputNumber"](item, key, i)
-      : carrinho["criaSpan"](key, otherkey, item);
+        ? carrinho["criaInputNumber"](item, key, i)
+        : carrinho["criaSpan"](key, otherkey, item);
     // (item.innerText = carrinho[key][otherkey]);
     divItem.appendChild(item);
   });

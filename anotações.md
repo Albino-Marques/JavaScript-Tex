@@ -70,3 +70,23 @@
 [x] Escopo de bloco semelhante a let.
 [x] Não permite que seu conteúdo seja substituído em variáveis simples.
 [x] Em arrays e objetos os indices e chaves pode ser alterados.
+
+
+
+## Promise
+
+[x] Função construtora
+[] Realiza opreações assíncronas
+[x] Apis modernas estão utilizando essa especificação como padrão
+
+[x] Um promise possui três estados (pending, fulfilled, rejected)
+[x] _pending_: quando a promise é iniciada.
+[x] _fulfiled_: quando a promise é realizada.
+[x] _rejected_: quando a promise é rejeitada.
+
+### Estrutura:
+[x] Uma primise recebe como argumento uma função. mp = new Promise(função)
+[x] A função passada como argumento na primise, por sua vez, recebe outras duas funções como argumento .
+[x] As funções passadas como argumento na função principal são comumente chamadas de resolve e reject.
+[] O método "then" retorna a primise realizada.
+[] O método "catch" retorna a primise rejeitada.
